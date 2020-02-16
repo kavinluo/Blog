@@ -13,7 +13,7 @@
 
 ## 热更新
 
-  - 全局安装nodemon
+  - 全局安装 nodemon
 
     `npm install -g nodemon`
     或者安装到本地

@@ -1,12 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  form(class="form-horizontal" method="post")
+  form(class="form-horizontal",method="post")
     fieldset
       legend 用户注册
       div(class="form-group")
-        label(class="control-label" for="username") Email address
+        label(class="control-label",for="username") Email address
         div(class="controls")
           input(type="text",class="form-control",id="username",name="username")
           p(class="help-block") We'll never share your email with anyone else.

@@ -1,0 +1,5 @@
+// test.http
+@url=http://localhost:4000/api
+ 
+### 
+get {{url}}/users
