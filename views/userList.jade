@@ -1,0 +1,7 @@
+extends layout
+
+block content
+
+  - var userList = data;
+  each item in userList
+    div= '用户名：' + item.username +  '  密码：' + item.password

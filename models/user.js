@@ -1,24 +1,18 @@
-// 引入 mongoose 
-const mongoose = require('mongoose')
- 
-// 连接数据库，自动新建 ExpressAuth 库
-mongoose.connect('mongodb://localhost:27017/ExpressAuth', {
- useNewUrlParser: true,
- useCreateIndex: true
-})
- 
-// 建立用户表
-const UserSchema = new mongoose.Schema({
- username: {
- type: String,
- unique: true
- },
- password: {
- type: String,
- }
-})
- 
-// 建立用户数据库模型
-const User = mongoose.model('User', userSchema)
- 
-module.exports = { User }
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+// 声明一个数据集 对象
+let userSchema = new Schema({
+    username: {
+        type: String,
+        unique: true
+    },
+    password: {
+        type: String
+    },
+    createAt: {
+        type: Date,
+        default : Date.now()
+    }
+});
+// 导出数据模型、
+module.exports = mongoose.model('users', userSchema);

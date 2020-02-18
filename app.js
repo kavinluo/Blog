@@ -1,24 +1,29 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');//Cookie解析的中间件
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');//Cookie解析的中间件
+const logger = require('morgan');
 const session = require('express-session')// 回话支持
 const Router = require('./routes/index');
+const bodyParser = require('body-parser');
 
 const MongoStore = require('connect-mongodb')
 const settings = require('./models/settings')
 
-const post = require('./api/post')
+const API = require('./api/index')
+
+const db = require('./models/db')
+
+const app = express();
+
+//app.use(db)
+
+app.use(API)
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
-var app = express();
-
-app.use(post)
-
-app.get('/api/users', async (req, res) => {
-  res.send('hello node.js888')
- })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // 设置为模板相对路径

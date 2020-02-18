@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '首页' });
+  res.render('index', { title: '首页', });
 });
 
 router.get('/users', function(req, res, next) {
